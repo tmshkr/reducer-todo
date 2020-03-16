@@ -23,7 +23,13 @@ export const initialState = {
   searchTerm: ""
 };
 
-export const taskReducer = (state = { ...initialState }, action) => {
+try {
+  const saved = localStorage.getItem("tasks");
+  if (saved) initialState.tasks = JSON.parse(saved);
+} catch {}
+
+let timer;
+export const taskReducer = (state, action) => {
   console.log("action", action);
 
   state = { ...state };
@@ -51,5 +57,12 @@ export const taskReducer = (state = { ...initialState }, action) => {
       break;
   }
   console.log("state", state);
+
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    try {
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
+    } catch {}
+  }, 500);
   return state;
 };
