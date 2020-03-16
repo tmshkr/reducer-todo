@@ -20,6 +20,7 @@ function CreateTask(props) {
     return {
       id: shortid.generate(),
       createdAt: Date.now(),
+      tags: [],
       title,
       completed: false
     };
