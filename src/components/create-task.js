@@ -1,4 +1,4 @@
-import React, { memo, useReducer } from "react";
+import React, { memo } from "react";
 import shortid from "shortid";
 import { CREATE_TASK } from "../actions";
 

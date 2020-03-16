@@ -46,6 +46,7 @@ export const taskReducer = (state = { ...initialState }, action) => {
       break;
     case SET_SEARCH:
       state.searchTerm = action.payload;
+      break;
     default:
       break;
   }

@@ -18,7 +18,7 @@ function Task(props) {
         payload: { ...task, completed: checked, title }
       });
     } else didUpdate.current = true;
-    // // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [title, checked]);
 
   return (
