@@ -26,7 +26,7 @@ function Task(props) {
     if (e.which === 13) {
       const match = title.match(/#\S*/g);
       if (match) {
-        setTags([...tags, ...match]);
+        setTags([...new Set([...tags, ...match])]);
         setTitle(title.replace(/#\S*/g, "").trim());
       }
     }

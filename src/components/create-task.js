@@ -17,8 +17,9 @@ function CreateTask(props) {
   }
 
   function createTask(title) {
-    const tags = title.match(/#\S*/g);
+    let tags = title.match(/#\S*/g);
     if (tags) {
+      tags = [...new Set([...tags])];
       title = title.replace(/#\S*/g, "").trim();
     }
     return {
