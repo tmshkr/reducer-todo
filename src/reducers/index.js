@@ -32,8 +32,6 @@ try {
 
 let timer;
 export const taskReducer = (state, action) => {
-  console.log("action", action);
-
   state = { ...state };
   switch (action.type) {
     case CREATE_TASK:
@@ -58,7 +56,6 @@ export const taskReducer = (state, action) => {
     default:
       break;
   }
-  console.log("state", state);
 
   clearTimeout(timer);
   timer = setTimeout(() => {
