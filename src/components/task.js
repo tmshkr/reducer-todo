@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState, memo } from "react";
 
 import { EDIT_TASK } from "../actions";
-import { parseTags } from "../utils/parseTags";
 
 function Task(props) {
   const { list, task } = props;
