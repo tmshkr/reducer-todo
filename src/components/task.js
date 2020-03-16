@@ -11,7 +11,7 @@ function Task(props) {
 
   // update list state
   useEffect(() => {
-    // check to see that the component has already mounted,
+    // check to see if the component has previously updated,
     // so that it doesn't dispatch on initial mount
     if (didUpdate.current) {
       list.dispatch({
