@@ -12,14 +12,14 @@ function List() {
   const { searchTerm, tasks } = state;
   return (
     <ul className="task-list list-group">
-      <Search list={[state, dispatch]} />
+      <Search list={{ dispatch }} />
       {Object.values(tasks)
         .filter(t => t.title.includes(searchTerm))
         .map(t => (
-          <Task key={t.id} task={t} list={[state, dispatch]} />
+          <Task key={t.id} task={t} list={{ dispatch }} />
         ))}
-      <CreateTask list={[state, dispatch]} />
-      <ClearCompleted list={[state, dispatch]} />
+      <CreateTask list={{ dispatch }} />
+      <ClearCompleted list={{ dispatch }} />
     </ul>
   );
 }

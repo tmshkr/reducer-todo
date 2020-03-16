@@ -7,10 +7,11 @@ function Task(props) {
 
   // update list state
   useEffect(() => {
-    const tasks = { ...list.state.tasks };
-    tasks[task.id] = { ...task, completed: checked, title };
-    list.setState({ tasks });
-    // eslint-disable-next-line
+    list.dispatch({
+      type: "EDIT_TASK",
+      payload: { ...task, completed: checked, title }
+    });
+    // // eslint-disable-next-line
   }, [title, checked]);
 
   return (

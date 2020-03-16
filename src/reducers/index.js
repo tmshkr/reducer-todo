@@ -26,8 +26,16 @@ export const taskReducer = (state = { ...initialState }, action) => {
       state.tasks[newTask.id] = newTask;
       break;
     case "EDIT_TASK":
+      const updatedTask = action.payload;
+      state.tasks[updatedTask.id] = updatedTask;
       break;
     case "CLEAR_COMPLETED":
+      const { tasks } = state;
+      for (let key in tasks) {
+        if (tasks[key].completed) {
+          delete tasks[key];
+        }
+      }
       break;
     default:
       break;
