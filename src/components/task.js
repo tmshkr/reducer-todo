@@ -1,5 +1,7 @@
 import React, { useEffect, useState, memo } from "react";
 
+import { EDIT_TASK } from "../actions";
+
 function Task(props) {
   const { list, task } = props;
   const [title, setTitle] = useState(task.title);
@@ -8,7 +10,7 @@ function Task(props) {
   // update list state
   useEffect(() => {
     list.dispatch({
-      type: "EDIT_TASK",
+      type: EDIT_TASK,
       payload: { ...task, completed: checked, title }
     });
     // // eslint-disable-next-line

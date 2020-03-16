@@ -1,5 +1,6 @@
 import React, { memo, useReducer } from "react";
 import shortid from "shortid";
+import { CREATE_TASK } from "../actions";
 
 function CreateTask(props) {
   const { list } = props;
@@ -8,7 +9,7 @@ function CreateTask(props) {
     if (e.which === 13 && e.target.value) {
       const newTask = createTask(e.target.value);
       list.dispatch({
-        type: "CREATE_TASK",
+        type: CREATE_TASK,
         payload: newTask
       });
       e.target.value = "";

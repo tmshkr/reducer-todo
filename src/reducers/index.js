@@ -1,3 +1,10 @@
+import {
+  CREATE_TASK,
+  EDIT_TASK,
+  CLEAR_COMPLETED,
+  SET_SEARCH
+} from "../actions";
+
 export const initialState = {
   tasks: {
     FyYvb00L: {
@@ -21,15 +28,15 @@ export const taskReducer = (state = { ...initialState }, action) => {
 
   state = { ...state };
   switch (action.type) {
-    case "CREATE_TASK":
+    case CREATE_TASK:
       const newTask = action.payload;
       state.tasks[newTask.id] = newTask;
       break;
-    case "EDIT_TASK":
+    case EDIT_TASK:
       const updatedTask = action.payload;
       state.tasks[updatedTask.id] = updatedTask;
       break;
-    case "CLEAR_COMPLETED":
+    case CLEAR_COMPLETED:
       const { tasks } = state;
       for (let key in tasks) {
         if (tasks[key].completed) {
@@ -37,7 +44,7 @@ export const taskReducer = (state = { ...initialState }, action) => {
         }
       }
       break;
-    case "SET_SEARCH":
+    case SET_SEARCH:
       state.searchTerm = action.payload;
     default:
       break;
