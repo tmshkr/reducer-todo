@@ -3,7 +3,7 @@ import React, { memo } from "react";
 function Search(props) {
   const { list } = props;
   const handleChange = e => {
-    list.setState({ searchTerm: e.target.value });
+    list.dispatch({ type: "SET_SEARCH", payload: e.target.value });
   };
 
   return (
