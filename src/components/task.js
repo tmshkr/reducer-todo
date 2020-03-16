@@ -21,7 +21,7 @@ function Task(props) {
       });
     } else didUpdate.current = true;
     // eslint-disable-next-line
-  }, [title, checked]);
+  }, [title, checked, tags]);
 
   const handleKeyDown = e => {
     console.log(e);

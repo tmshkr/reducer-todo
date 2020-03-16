@@ -10,7 +10,7 @@ export const initialState = {
     FyYvb00L: {
       id: "FyYvb00L",
       createdAt: 1584311638143,
-      tags: [],
+      tags: ["#world"],
       title: "hello",
       completed: false
     },
@@ -18,7 +18,7 @@ export const initialState = {
       id: "3ve4IatGn",
       createdAt: 1584311639007,
       tags: [],
-      title: "world",
+      title: "include #tag then press enter",
       completed: false
     }
   },

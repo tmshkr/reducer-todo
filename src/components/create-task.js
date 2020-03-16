@@ -17,10 +17,14 @@ function CreateTask(props) {
   }
 
   function createTask(title) {
+    const tags = title.match(/#\S*/g);
+    if (tags) {
+      title = title.replace(/#\S*/g, "").trim();
+    }
     return {
       id: shortid.generate(),
       createdAt: Date.now(),
-      tags: [],
+      tags: tags || [],
       title,
       completed: false
     };
