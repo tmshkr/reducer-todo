@@ -24,7 +24,6 @@ function Task(props) {
   }, [title, checked, tags]);
 
   const handleKeyDown = e => {
-    console.log(e);
     if (e.which === 13) {
       const match = title.match(/#\S*/g);
       if (match) {
