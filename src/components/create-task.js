@@ -1,15 +1,18 @@
-import React, { memo } from "react";
-const shortid = require("shortid");
+import React, { memo, useReducer } from "react";
+import shortid from "shortid";
+
+import { taskReducer } from "../reducers";
 
 function CreateTask(props) {
-  const { list } = props;
+  const [state, dispatch] = props.list;
 
   function handleKeyPress(e) {
     if (e.which === 13 && e.target.value) {
-      const tasks = { ...list.state.tasks };
       const newTask = createTask(e.target.value);
-      tasks[newTask.id] = newTask;
-      list.setState({ tasks });
+      dispatch({
+        type: "CREATE_TASK",
+        payload: newTask
+      });
       e.target.value = "";
     }
   }
