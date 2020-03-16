@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo } from "react";
+import React, { useEffect, useRef, useState, memo } from "react";
 
 import { EDIT_TASK } from "../actions";
 
@@ -6,13 +6,18 @@ function Task(props) {
   const { list, task } = props;
   const [title, setTitle] = useState(task.title);
   const [checked, setChecked] = useState(task.completed);
+  const didUpdate = useRef(false);
 
   // update list state
   useEffect(() => {
-    list.dispatch({
-      type: EDIT_TASK,
-      payload: { ...task, completed: checked, title }
-    });
+    // check to see that the component has updated before,
+    // so that it doesn't dispatch on initial mount
+    if (didUpdate.current) {
+      list.dispatch({
+        type: EDIT_TASK,
+        payload: { ...task, completed: checked, title }
+      });
+    } else didUpdate.current = true;
     // // eslint-disable-next-line
   }, [title, checked]);
 
