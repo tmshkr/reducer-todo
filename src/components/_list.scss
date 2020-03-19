@@ -1,0 +1,32 @@
+ul.task-list {
+  max-width: 600px;
+  margin: auto;
+  .list-group-item {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid rgba(158, 158, 158, 0.5);
+    margin: 0.15rem 0;
+    &:focus-within {
+      border: 1px solid #fff;
+    }
+  }
+  a {
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+    }
+    span {
+      font-size: 0.75rem;
+      font-style: italic;
+    }
+  }
+  [class^="alert"] {
+    background-color: transparent;
+    color: #fff;
+  }
+  button {
+    background: transparent;
+  }
+}
